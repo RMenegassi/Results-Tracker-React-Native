@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "469515230676",
+    "project_id": "resultstracker-67247",
+    "storage_bucket": "resultstracker-67247.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:469515230676:android:1469e88f18fa6ed7530a41",
+        "android_client_info": {
+          "package_name": "com.resultstracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "469515230676-f782oq7imr66phjnb6j8qrpqh0u5tig7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnhsWmei-rTedjSaLiVEZa1q3o8HJCtIE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "469515230676-f782oq7imr66phjnb6j8qrpqh0u5tig7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
