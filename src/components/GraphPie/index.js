@@ -15,13 +15,10 @@ const GraphPie = ({results}) => {
     sliceColor = ['#FF0000', '#14F900'];
   }
 
-  const teste = [results.victory, results.loss];
-  console.log(teste);
-
   return (
     <Container>
       <PieChart
-        widthAndHeight={180}
+        widthAndHeight={140}
         series={series}
         sliceColor={sliceColor}
         doughnut={true}
