@@ -1,8 +1,8 @@
 import {useState, useEffect} from 'react';
 
-import {getEntries} from '../services/Entries';
+import {getEntries, addEntry, updateEntry} from '../services/Entries';
 
-const useEntries = (date, days = 0) => {
+const useEntries = (date, days = 0, clicked) => {
   const [entries, setEntries] = useState([]);
 
   useEffect(() => {
@@ -12,9 +12,9 @@ const useEntries = (date, days = 0) => {
     };
 
     loadEntries();
-  }, [date, days]);
+  }, [date, days, clicked]);
 
-  return [entries];
+  return [entries, addEntry, updateEntry];
 };
 
 export default useEntries;
