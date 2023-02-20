@@ -1,17 +1,18 @@
 import React from 'react';
+
 import PieChart from 'react-native-pie-chart';
 
 import {Container} from './styles';
 
-const GraphPie = ({results}) => {
+const GraphPie = ({data}) => {
   let series = [];
   let sliceColor = [];
 
-  if (results.victory === 0 && results.loss === 0) {
+  if (data.length <= 0 || (data[0].victory === 0 && data[0].loss === 0)) {
     series = [1];
     sliceColor = ['#7D7C7C'];
   } else {
-    series = [results.loss, results.victory];
+    series = [data[0].loss, data[0].victory];
     sliceColor = ['#FF0000', '#14F900'];
   }
 

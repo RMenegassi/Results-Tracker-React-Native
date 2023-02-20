@@ -30,3 +30,7 @@ export const TextItens = styled.Text`
 export const Button = styled.TouchableOpacity`
   opacity: ${({disabled}) => (disabled ? 0.5 : 1)};
 `;
+
+export const ContainerLoading = styled.View`
+  padding: 34px;
+`;

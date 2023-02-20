@@ -6,18 +6,15 @@ import GraphPie from '../../components/GraphPie';
 
 import {Container, TextTitle, Button, TextButtons} from './styles';
 
+import useEntries from '../../hooks/useResults';
+
 const Main = () => {
   const [day, setDay] = useState(new Date());
   const [vitorias, setVitorias] = useState(0);
   const [derrotas, setDerrotas] = useState(0);
+  const [data] = useEntries(day.toLocaleDateString('pt-BR'));
 
-  const data = [
-    {day: '19/02/2023', vitorias: 10, derrotas: 1},
-    {day: '20/02/2023', vitorias: 1, derrotas: 5},
-    {day: '18/02/2023', vitorias: 3, derrotas: 2},
-    {day: '15/02/2023', vitorias: 6, derrotas: 2},
-    {day: '25/02/2023', vitorias: 5, derrotas: 0},
-  ];
+  console.log(data);
 
   const subDay = () => {
     const newDay = new Date(day);
@@ -39,7 +36,10 @@ const Main = () => {
         addDay={addDay}
       />
 
-      <TextTitle>Partida {vitorias + derrotas + 1}</TextTitle>
+      <TextTitle>
+        Partida {data.length > 0 ? data[0].victory + data[0].loss + 1 : '1'}
+      </TextTitle>
+
       <Button title="vitoria" onPress={() => setVitorias(vitorias + 1)}>
         <TextButtons>Vitórias</TextButtons>
       </Button>
@@ -47,12 +47,8 @@ const Main = () => {
         <TextButtons>Derrotas</TextButtons>
       </Button>
 
-      <Report
-        results={{victory: vitorias, loss: derrotas}}
-        setVitorias={setVitorias}
-        setDerrotas={setDerrotas}
-      />
-      <GraphPie results={{victory: vitorias, loss: derrotas}} />
+      <Report data={data} setVitorias={setVitorias} setDerrotas={setDerrotas} />
+      <GraphPie data={data} />
     </Container>
   );
 };
