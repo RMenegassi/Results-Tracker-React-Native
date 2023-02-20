@@ -20,7 +20,7 @@ const Loading = () => {
   );
 };
 
-const Report = ({data, setVitorias, setDerrotas}) => {
+const Report = ({data, updateVictory, updateLoss}) => {
   return (
     <Container>
       {data.length > 0 ? (
@@ -29,7 +29,7 @@ const Report = ({data, setVitorias, setDerrotas}) => {
           <ContainerItem>
             <TextItens>Vitórias: {data[0].victory}</TextItens>
             <Button
-              onPress={() => setVitorias(data[0].victory - 1)}
+              onPress={() => updateVictory(-1)}
               disabled={data[0].victory >= 1 ? false : true}>
               <Icon name="remove-circle" size={15} color="black" />
             </Button>
@@ -37,7 +37,7 @@ const Report = ({data, setVitorias, setDerrotas}) => {
           <ContainerItem>
             <TextItens>Derrotas: {data[0].loss}</TextItens>
             <Button
-              onPress={() => setDerrotas(data[0].loss - 1)}
+              onPress={() => updateLoss(-1)}
               disabled={data[0].loss >= 1 ? false : true}>
               <Icon name="remove-circle" size={15} color="black" />
             </Button>
