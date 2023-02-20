@@ -1,5 +1,7 @@
 import firestore from '@react-native-firebase/firestore';
 
+import {Alert} from 'react-native';
+
 export const getEntries = async (date, days) => {
   let querySnapshot;
 
@@ -30,4 +32,46 @@ export const getEntries = async (date, days) => {
   }
 
   return entries;
+};
+
+export const addEntry = async entry => {
+  let data = {};
+  console.log('entry ', entry);
+
+  try {
+    data = {
+      day: entry.day,
+      victory: entry.victory,
+      loss: entry.loss,
+    };
+
+    await firestore().collection('entries').add(data);
+    console.log('addEntry :: data: ', JSON.stringify(data));
+  } catch (error) {
+    console.error('addEntry :: error on save object: ', JSON.stringify(data));
+    Alert.alert('Erro', 'Houve um erro ao salvar a ultima partida.');
+  }
+
+  return data;
+};
+
+export const updateEntry = async entry => {
+  let data = {};
+
+  try {
+    data = {
+      ...entry,
+    };
+
+    await firestore().collection('entries').doc(entry.id).update(data);
+    console.log('updateEntry :: data: ', JSON.stringify(data));
+  } catch (error) {
+    console.error(
+      'updateEntry :: error on update object: ',
+      JSON.stringify(data),
+    );
+    Alert.alert('Erro', 'Houve um erro ao atualizar a ultima partida.');
+  }
+
+  return data;
 };
