@@ -17,7 +17,6 @@ const Routes = () => {
         initialRouteName="Main"
         screenOptions={{
           headerShown: false,
-          unmountOnBlur: true,
           tabBarInactiveBackgroundColor: 'black',
           tabBarActiveBackgroundColor: 'black',
           tabBarStyle: {
