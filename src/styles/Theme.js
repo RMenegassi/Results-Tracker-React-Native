@@ -29,11 +29,10 @@ export const theme = {
     carbon: '#555459',
     carbonDark: '#3b3a3e',
     primary: '#3498db',
-    secondary: '#2ecc71',
+    secondary: '#2A2828',
     danger: '#f37272',
     light: '#ecf0f1',
     dark: '#34495e',
-    button: '#2A2828',
     background: '#2D3957',
   },
 };
