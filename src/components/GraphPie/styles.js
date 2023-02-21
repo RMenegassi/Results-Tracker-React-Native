@@ -1,5 +1,3 @@
 import styled from 'styled-components';
 
-export const Container = styled.View`
-  margin-top: 20px;
-`;
+export const Container = styled.View``;

@@ -4,7 +4,13 @@ import Header from '../../components/Header';
 import Report from '../../components/Report';
 import GraphPie from '../../components/GraphPie';
 
-import {Container, TextTitle, Button, TextButtons} from './styles';
+import {
+  Container,
+  TextTitle,
+  Button,
+  TextButtons,
+  ContainerGraph,
+} from './styles';
 
 import useEntries from '../../hooks/useResults';
 
@@ -46,8 +52,11 @@ const Main = () => {
   };
 
   const createNewSave = type => {
+    const newDay = new Date(day);
+    newDay.setHours(0, 0, 0, 0);
+
     addEntry({
-      day: day,
+      day: newDay,
       victory: type === 'victory' ? 1 : 0,
       loss: type === 'loss' ? 1 : 0,
     });
@@ -88,7 +97,9 @@ const Main = () => {
         updateVictory={updateVictory}
         updateLoss={updateLoss}
       />
-      <GraphPie data={data} />
+      <ContainerGraph>
+        <GraphPie data={data} />
+      </ContainerGraph>
     </Container>
   );
 };

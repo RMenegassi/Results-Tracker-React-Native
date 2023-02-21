@@ -19,7 +19,7 @@ const GraphPie = ({data}) => {
   return (
     <Container>
       <PieChart
-        widthAndHeight={140}
+        widthAndHeight={130}
         series={series}
         sliceColor={sliceColor}
         doughnut={true}

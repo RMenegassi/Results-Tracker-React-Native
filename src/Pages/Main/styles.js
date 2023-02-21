@@ -5,7 +5,7 @@ import {theme} from '../../styles/Theme';
 export const Container = styled.View`
   background-color: ${theme.colors.background};
   align-items: center;
-  height: 100%;
+  flex: 1;
 `;
 
 export const TextTitle = styled.Text`
@@ -27,4 +27,9 @@ export const Button = styled.TouchableOpacity`
 export const TextButtons = styled.Text`
   font-size: 35px;
   color: white;
+`;
+
+export const ContainerGraph = styled.View`
+  flex: 1;
+  justify-content: center;
 `;
