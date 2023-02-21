@@ -7,14 +7,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import Main from './Pages/Main';
-
-export const Stats = () => {
-  return (
-    <View>
-      <Text>Stats</Text>
-    </View>
-  );
-};
+import Stats from './Pages/Stats';
 
 const Routes = () => {
   const Tab = createBottomTabNavigator();
@@ -27,6 +20,9 @@ const Routes = () => {
           unmountOnBlur: true,
           tabBarInactiveBackgroundColor: 'black',
           tabBarActiveBackgroundColor: 'black',
+          tabBarStyle: {
+            borderTopWidth: 0,
+          },
         }}>
         <Tab.Screen
           name="Main"
