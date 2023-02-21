@@ -33,6 +33,7 @@ export const theme = {
     danger: '#f37272',
     light: '#ecf0f1',
     dark: '#34495e',
+    button: '#2A2828',
     background: '#2D3957',
   },
 };
