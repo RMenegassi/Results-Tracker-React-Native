@@ -17,6 +17,7 @@
     "@react-native-firebase/firestore": "^17.3.0",
     "@react-navigation/bottom-tabs": "^6.5.5",
     "@react-navigation/native": "^6.1.4",
+    "@react-navigation/stack": "^6.3.14",
     "dependencies": "^0.0.1",
     "install": "^0.13.0",
     "peer": "^0.6.1",
