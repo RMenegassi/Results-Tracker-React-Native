@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import {SignIn as login} from '../../services/Auth';
 
@@ -36,7 +36,7 @@ const SignIn = ({navigation}) => {
 
   return (
     <Container behavior="height">
-      <Icon name="equalizer" size={90} color="white" />
+      <Icon name="trophy" size={90} color="white" />
       <InputText
         placeholder="Seu e-mail"
         placeholderTextColor="#555459"
