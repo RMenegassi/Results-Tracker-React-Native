@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+import {SignIn as login} from '../../services/Auth';
+
 import {
   Container,
   InputText,
@@ -14,6 +16,23 @@ const SignIn = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const onSubmit = async () => {
+    if (loading === false) {
+      setLoading(true);
+      const {loginSuccess} = await login({email, password});
+
+      if (loginSuccess === true) {
+        navigation.reset({
+          index: 0,
+          key: null,
+          routes: [{name: 'Home'}],
+        });
+      } else {
+        setLoading(false);
+      }
+    }
+  };
 
   return (
     <Container behavior="padding">
@@ -36,7 +55,9 @@ const SignIn = ({navigation}) => {
         value={password}
         onChangeText={text => setPassword(text)}
       />
-      <ButtonLogin>
+      <ButtonLogin
+        onPress={onSubmit}
+        disabled={email && password ? false : true}>
         <TextLogin>{loading ? 'Carregando...' : 'Entrar'}</TextLogin>
       </ButtonLogin>
       <ButtonSignUp
