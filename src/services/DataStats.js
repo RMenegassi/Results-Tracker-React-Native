@@ -22,17 +22,15 @@ export const getAllEntriesDay = async days => {
     return {...doc.data()};
   });
 
-  const allSum = entries.reduce((acc, curr) => {
-    return {loss: acc.loss + curr.loss, victory: acc.victory + curr.victory};
-  });
+  if (entries.length > 0) {
+    const allSum = entries.reduce((acc, curr) => {
+      return {loss: acc.loss + curr.loss, victory: acc.victory + curr.victory};
+    });
 
-  const mostVictory = {...entries.sort((a, b) => b.victory - a.victory)[0]};
+    const mostVictory = {...entries.sort((a, b) => b.victory - a.victory)[0]};
 
-  const mostLoss = {...entries.sort((a, b) => b.loss - a.loss)[0]};
-
-  entries = [entries, allSum, mostVictory, mostLoss];
-
-  console.log(entries);
+    entries = [entries, allSum, mostVictory];
+  }
 
   return entries;
 };
