@@ -6,7 +6,7 @@ import GraphStats from '../../components/GraphStats';
 
 import useStats from '../../hooks/useStats';
 
-import {Container} from './styles';
+import {Container, ContainerMessage, Text} from './styles';
 
 const Stats = () => {
   const [days, setDays] = useState(0);
@@ -14,12 +14,16 @@ const Stats = () => {
 
   return (
     <Container>
-      <ModalTime days={days} setDays={setDays} />
-      {entries.length > 0 && (
+      {entries.length > 0 ? (
         <>
+          <ModalTime days={days} setDays={setDays} />
           <Statistics data={entries} />
           <GraphStats data={entries} days={days} />
         </>
+      ) : (
+        <ContainerMessage>
+          <Text>Nenhum registro encontrado...</Text>
+        </ContainerMessage>
       )}
     </Container>
   );
