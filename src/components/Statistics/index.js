@@ -32,10 +32,6 @@ const Statistics = ({data}) => {
           {data[2].victory} partidas com {percentVictoryDay}% de aproveitamento
           {'\n'}
         </Text>
-        <Text>
-          Em {data[3].day.toDate().toLocaleDateString('pt-BR')} você teve{' '}
-          {data[3].loss} derrotas {'\n'}
-        </Text>
       </ContainerContent>
     </Container>
   );
