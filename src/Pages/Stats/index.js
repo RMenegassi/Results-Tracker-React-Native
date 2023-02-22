@@ -15,8 +15,12 @@ const Stats = () => {
   return (
     <Container>
       <ModalTime days={days} setDays={setDays} />
-      <Statistics data={entries} />
-      <GraphStats />
+      {entries.length > 0 && (
+        <>
+          <Statistics data={entries} />
+          <GraphStats data={entries} days={days} />
+        </>
+      )}
     </Container>
   );
 };
