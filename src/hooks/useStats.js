@@ -1,16 +1,19 @@
-import {useState, useEffect} from 'react';
+import {useState, useCallback} from 'react';
+import {useFocusEffect} from '@react-navigation/native';
 import {getAllEntriesDay} from '../services/DataStats';
 
 const useStats = (days = 0) => {
   const [entries, setEntries] = useState([]);
 
-  useEffect(() => {
-    const loadEntries = async () => {
-      const data = await getAllEntriesDay(days);
-      setEntries(data);
-    };
-    loadEntries();
-  }, [days]);
+  useFocusEffect(
+    useCallback(() => {
+      const loadEntries = async () => {
+        const data = await getAllEntriesDay(days);
+        setEntries(data);
+      };
+      loadEntries();
+    }, [days]),
+  );
 
   return [entries];
 };
