@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import Header from '../../components/Header';
 import Report from '../../components/Report';
 import GraphPie from '../../components/GraphPie';
+import LogoutButton from '../../components/LogoutButton';
 
 import {
   Container,
@@ -100,6 +101,7 @@ const Main = () => {
       <ContainerGraph>
         <GraphPie data={data} />
       </ContainerGraph>
+      <LogoutButton />
     </Container>
   );
 };
