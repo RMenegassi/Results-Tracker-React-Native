@@ -35,7 +35,7 @@ const SignIn = ({navigation}) => {
   };
 
   return (
-    <Container behavior="padding">
+    <Container behavior="height">
       <Icon name="equalizer" size={90} color="white" />
       <InputText
         placeholder="Seu e-mail"
