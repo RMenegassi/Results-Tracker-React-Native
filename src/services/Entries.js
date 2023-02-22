@@ -1,8 +1,11 @@
 import firestore from '@react-native-firebase/firestore';
 
+import {getUserAuthTracker} from './Auth';
+
 import {Alert} from 'react-native';
 
 export const getEntries = async (date, days) => {
+  const userAuth = await getUserAuthTracker();
   let querySnapshot;
 
   if (days > 0) {
@@ -11,12 +14,14 @@ export const getEntries = async (date, days) => {
 
     querySnapshot = await firestore()
       .collection('entries')
+      .where('userId', '==', userAuth)
       .orderBy('day')
       .startAt(today)
       .get();
   } else {
     querySnapshot = await firestore()
       .collection('entries')
+      .where('userId', '==', userAuth)
       .orderBy('day')
       .get();
   }
@@ -35,6 +40,7 @@ export const getEntries = async (date, days) => {
 };
 
 export const addEntry = async entry => {
+  const userAuth = await getUserAuthTracker();
   let data = {};
   console.log('entry ', entry);
 
@@ -43,6 +49,7 @@ export const addEntry = async entry => {
       day: entry.day,
       victory: entry.victory,
       loss: entry.loss,
+      userId: userAuth,
     };
 
     await firestore().collection('entries').add(data);
@@ -56,11 +63,13 @@ export const addEntry = async entry => {
 };
 
 export const updateEntry = async entry => {
+  const userAuth = await getUserAuthTracker();
   let data = {};
 
   try {
     data = {
       ...entry,
+      userId: userAuth,
     };
 
     await firestore().collection('entries').doc(entry.id).update(data);

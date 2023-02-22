@@ -1,6 +1,9 @@
 import firestore from '@react-native-firebase/firestore';
 
+import {getUserAuthTracker} from './Auth';
+
 export const getAllEntriesDay = async days => {
+  const userAuth = await getUserAuthTracker();
   let querySnapshot;
 
   if (days > 0) {
@@ -9,12 +12,14 @@ export const getAllEntriesDay = async days => {
 
     querySnapshot = await firestore()
       .collection('entries')
+      .where('userId', '==', userAuth)
       .orderBy('day')
       .startAt(today)
       .get();
   } else {
     querySnapshot = await firestore()
       .collection('entries')
+      .where('userId', '==', userAuth)
       .orderBy('day')
       .get();
   }
