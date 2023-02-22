@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+import {SignUp as register} from '../../services/Auth';
+
 import {
   Container,
   InputText,
@@ -12,9 +14,25 @@ import {
 
 const SignUp = ({navigation}) => {
   const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const onSubmit = async () => {
+    if (loading === false) {
+      setLoading(true);
+      const {registerSuccess} = await register({email, password});
+
+      if (registerSuccess === true) {
+        navigation.reset({
+          index: 0,
+          key: null,
+          routes: [{name: 'Home'}],
+        });
+      } else {
+        setLoading(false);
+      }
+    }
+  };
 
   return (
     <Container behavior="padding">
@@ -29,14 +47,6 @@ const SignUp = ({navigation}) => {
         onChangeText={text => setEmail(text)}
       />
       <InputText
-        placeholder="Seu nome"
-        placeholderTextColor="#555459"
-        autoCapitalize="none"
-        autoCorrect={false}
-        value={name}
-        onChangeText={text => setName(text)}
-      />
-      <InputText
         placeholder="Sua senha"
         placeholderTextColor="#555459"
         secureTextEntry
@@ -45,7 +55,9 @@ const SignUp = ({navigation}) => {
         value={password}
         onChangeText={text => setPassword(text)}
       />
-      <ButtonCreate>
+      <ButtonCreate
+        onPress={onSubmit}
+        disabled={email && password ? false : true}>
         <TextCreate>{loading ? 'Carregando...' : 'Criar conta'}</TextCreate>
       </ButtonCreate>
       <ButtonSignUp

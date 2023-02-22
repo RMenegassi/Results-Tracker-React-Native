@@ -27,6 +27,7 @@ export const ButtonCreate = styled.TouchableOpacity`
   align-items: center;
   border-radius: 2px;
   margin-top: 10px;
+  opacity: ${({disabled}) => (disabled ? 0.5 : 1)};
 `;
 
 export const TextCreate = styled.Text`
