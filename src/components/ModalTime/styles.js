@@ -25,6 +25,10 @@ export const ContainerModal = styled.View`
 
 export const ButtonModal = styled.TouchableOpacity`
   align-items: center;
+  background-color: ${({theme}) => theme.colors.secondary};
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0px;
 `;
 
 export const TextModal = styled.Text`
@@ -32,8 +36,13 @@ export const TextModal = styled.Text`
   font-size: 20px;
 `;
 
-export const ButtonClose = styled.TouchableOpacity``;
+export const ButtonClose = styled.TouchableOpacity`
+  border: 1px solid red;
+  border-radius: 50px;
+  padding: 10px 20px;
+  margin: 20px 0px;
+`;
 
 export const TextClose = styled.Text`
-  color: white;
+  color: red;
 `;
