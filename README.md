@@ -16,7 +16,7 @@
 
 ## About
 Results Tracker is an app to save the number of victories and defeats per day, making the vizualiation of your progress easier. 
-It utilize charts and stats to make a better vizualization of your progress in different number of days.
+It utilizes charts and stats to make a better vizualization of your progress in different number of days.
 
 ## Technologies
 
