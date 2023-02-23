@@ -1,6 +1,6 @@
 <div align="center">
 
-  <h1 align="center">Tormenta Cards</h3>
+  <h1 align="center">Results Tracker</h3>
 
   <p align="center">
     A results tracker built with React-Native for Android devices.
