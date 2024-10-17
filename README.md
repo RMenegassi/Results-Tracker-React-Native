@@ -1,9 +1,9 @@
 <div align="center">
 
-  <h1 align="center">Results Tracker</h3>
+  <h1 align="center">Results Recorder</h3>
 
   <p align="center">
-    A results tracker built with React-Native for Android devices.
+    A results recorder built with React-Native for Android devices.
   </p>
 </div>
 
@@ -15,8 +15,7 @@
 </div>
 
 ## About
-Results Tracker is an app to save the number of victories and defeats per day, making the vizualiation of your progress easier. 
-It utilizes charts and stats to make a better vizualization of your progress in different number of days.
+Results Recorder is an app to record the number of victories and defeats per day, making  progress visualization easier. 
 
 ## Technologies
 
